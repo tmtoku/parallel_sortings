@@ -1,0 +1,3 @@
+[submodule "blockquicksort"]
+	path = blockquicksort
+	url = https://github.com/weissan/blockquicksort.git
