@@ -11,8 +11,8 @@ endif
 CFLAGS += -fopenmp
 LDFLAGS += -fopenmp
 
-ifeq ($(seq),blockq)
-CFLAGS += -D_SEQ_BLOCKQ
+ifeq ($(seq),std)
+CFLAGS += -D_SEQ_STD
 endif
 
 ifeq ($(seq),pdq)

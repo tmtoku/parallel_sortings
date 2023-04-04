@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <functional>
 
-#if defined(_SEQ_BLOCKQ)
+#if !defined(_SEQ_STD) && !defined(_SEQ_PDQ)
     #include "../blockquicksort/blocked_double_pivot_check_mosqrt.h++"
 #endif
 
@@ -16,12 +16,12 @@ namespace parallel_sortings {
 template <typename RandomAccessIterator, typename Compare>
 void sequentialSort(RandomAccessIterator first, RandomAccessIterator last,
                     Compare comp) {
-#if defined(_SEQ_BLOCKQ)
-    blocked_double_pivot_check_mosqrt::sort(first, last, comp);
+#if defined(_SEQ_STD)
+    std::sort(first, last, comp);
 #elif defined(_SEQ_PDQ)
     boost::sort::pdqsort(first, last, comp);
 #else
-    std::sort(first, last, comp);
+    blocked_double_pivot_check_mosqrt::sort(first, last, comp);
 #endif
 }
 

@@ -26,12 +26,12 @@ bool isSorted(RandomAccessIterator begin, RandomAccessIterator end) {
 }
 
 inline std::string getSequentialString() {
-#if defined(_SEQ_BLOCKQ)
-    return "blockq";
+#if defined(_SEQ_STD)
+    return "std";
 #elif defined(_SEQ_PDQ)
     return "boost pdq";
 #else
-    return "std";
+    return "blockq";
 #endif
 }
 
